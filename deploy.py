@@ -5,7 +5,8 @@ from zipfile import ZipFile
 vc4_server = os.getenv('VC4_SERVER_URL')
 vc4_api_key = os.getenv('VC4_API_KEY')
 
-file_path = sys.argv[1]
+program_id = sys.argv[1]
+file_path = sys.argv[2]
 with ZipFile('index.zip','w') as zip:
     zip.write(file_path)
 
@@ -15,10 +16,7 @@ headers = {
 }
 
 form_data = {
-    'ProgramId': 3,
-    'FriendlyName': 'SSProJenkins',
-    'Notes': 'Jenkins Deployed This',
-    'StartNow': 'true'
+    'ProgramId': program_id
 }
 
 program_file = {
