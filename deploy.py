@@ -16,7 +16,8 @@ headers = {
 }
 
 form_data = {
-    'ProgramId': program_id
+    'ProgramId': program_id,
+    'StartNow': 'true'
 }
 
 program_file = {
