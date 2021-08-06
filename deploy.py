@@ -26,3 +26,4 @@ program_file = {
 
 deploy = requests.put(f'{vc4_server}/VirtualControl/config/api/ProgramLibrary', headers=headers, files=program_file, data=form_data)
 print(deploy.content)
+print(deploy.status_code)
