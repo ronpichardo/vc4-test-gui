@@ -25,5 +25,10 @@ program_file = {
 }
 
 deploy = requests.put(f'{vc4_server}/VirtualControl/config/api/ProgramLibrary', headers=headers, files=program_file, data=form_data)
-print(deploy.content)
-print(deploy.status_code)
+status_info = (deploy.json()['Actions'][0]['Results'][0]['StatusInfo']
+if status_info == 'SUCCESS':
+    print('Deployment succeeded')
+    sys.exit(0)
+else:
+    print('Deployment failed, Reason: ' + status_info)
+    sys.exit(1)
